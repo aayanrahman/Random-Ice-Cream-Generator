@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Ice Cream Flavor Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Random Ice Cream Flavor Generator</h1>
+    <button onclick="generateFlavor()">Generate Ice Cream Flavor</button>
+    <div id="ice-cream-flavor">
+        <!-- The generated ice cream flavor will appear here -->
+    </div>
+
+    <script>
+        function generateFlavor() {
+            fetch('/generate')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ice-cream-flavor').innerHTML = `
+                        <p>Flavor: ${data.flavor}</p>
+                        <p>Mix-in: ${data.mix_in}</p>
+                        <p>Topping: ${data.topping}</p>
+                        <p>Swirl: ${data.swirl}</p>
+                        <p>Sauce: ${data.sauce}</p>
+                    `;
+                });
+        }
+    </script>
+</body>
+</html>
