@@ -1,8 +1,7 @@
 from flask import Flask, render_template, jsonify
 import random
 
-app = Flask(__name__)
-
+app = Flask(__name__, static_url_path='/static')
 # Define lists of possible ingredients
 flavors = ["vanilla", "chocolate", "strawberry", "mint", "coffee", "caramel", "matcha", "banana", "coconut", "peach"]
 mix_ins = ["chocolate chips", "cookie dough", "brownie bits", "caramel swirl", "marshmallows", "nuts", "fruit pieces", "candy bits"]
